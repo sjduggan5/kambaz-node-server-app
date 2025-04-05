@@ -1,30 +1,11 @@
-import Database from '../Database/index.js';
+import model from './model.js';
 
-export function findAssignment(assignmentId) {
-  const { assignments } = Database;
-  return assignments.filter((assignment) => assignment.course === assignmentId);
-}
-export function findAssignmentsForCourse(courseId) {
-  const { assignments } = Database;
-  return assignments.filter((assignment) => assignment.course === courseId);
-}
-
-export function createAssignment(assignments) {
-  const newAssignment = { ...assignments, _id: uuidv4() };
-  Database.assignments = [...Database.assignments, newAssignment];
-  return newAssignment;
-}
-export function deleteAssignment(assignmentId) {
-  const { assignments } = Database;
-  Database.assignments = assignments.filter(
-    (assignment) => assignment._id !== assignmentId
-  );
-}
-export function updateAssignment(assignmentId, assignmentUpdates) {
-  const { assignments } = Database;
-  const assignment = assignments.find(
-    (assignment) => assignment._id === assignmentId
-  );
-  Object.assign(assignment, assignmentUpdates);
-  return assignment;
-}
+export const findAssignment = (assignmentId) => model.findById(assignmentId);
+export const findAssignmentsForCourse = (courseId) => model.find({course: courseId})
+export const createAssignment = (assignment) => {
+  const newAssignment = { ...assignment, _id: uuidv4() };
+  return model.create(newAssignment);
+};
+export const updateAssignment = (assignmentId, assignmentUpdates) =>
+  model.updateOne({ _id: assignmentId }, { $set: assignmentUpdates });
+export const deleteAssignment = (assignmentId) => model.deleteOne({ _id: assignmentId });
