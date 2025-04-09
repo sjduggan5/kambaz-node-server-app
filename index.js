@@ -8,8 +8,11 @@ import cors from 'cors';
 import 'dotenv/config';
 import ModuleRoutes from './Kambaz/Modules/routes.js';
 import AssignmentRoutes from './Kambaz/Assignments/routes.js';
-import EnrollmentsRoutes from './Kambaz/Enrollments/routes.js';
+import mongoose from 'mongoose';
 
+const CONNECTION_STRING =
+  process.env.MONGO_CONNECTION_STRING || 'mongodb://192.168.1.185:27017/kambaz';
+await mongoose.connect(CONNECTION_STRING);
 const app = express();
 app.use(
   cors({
@@ -35,7 +38,6 @@ app.use(session(sessionOptions));
 app.use(express.json());
 UserRoutes(app);
 AssignmentRoutes(app);
-EnrollmentsRoutes(app);
 CourseRoutes(app);
 ModuleRoutes(app);
 Lab5(app);
