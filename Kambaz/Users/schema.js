@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema(
     section: String,
     lastActivity: Date,
     totalActivity: String,
+    postsViewed: [{ type: String, ref: 'PostModel' }],
   },
   { collection: 'users' }
 );
