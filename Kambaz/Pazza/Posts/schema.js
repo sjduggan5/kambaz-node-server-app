@@ -20,7 +20,7 @@ const postSchema = new mongoose.Schema(
       enum: ['PUBLIC', 'PRIVATE'],
       default: 'PUBLIC',
     },
-    userIds: [{ type: String, ref: 'UserModel' }],
+    visibleToUserIds: [{ type: String, ref: 'UserModel' }], // Users that can view the post, if public then this is empty
     status: {
       type: String,
       enum: ['UNANSWERED', 'ANSWERED'],
