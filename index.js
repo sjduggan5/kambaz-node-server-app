@@ -8,6 +8,9 @@ import cors from 'cors';
 import 'dotenv/config';
 import ModuleRoutes from './Kambaz/Modules/routes.js';
 import AssignmentRoutes from './Kambaz/Assignments/routes.js';
+import CommentRoutes from './Kambaz/Pazza/Comments/routes.js';
+import FolderRoutes from './Kambaz/Pazza/Folders/routes.js';
+import PostRoutes from './Kambaz/Pazza/Posts/routes.js';
 import mongoose from 'mongoose';
 
 const CONNECTION_STRING =
@@ -40,6 +43,9 @@ UserRoutes(app);
 AssignmentRoutes(app);
 CourseRoutes(app);
 ModuleRoutes(app);
+CommentRoutes(app);
+FolderRoutes(app);
+PostRoutes(app);
 Lab5(app);
 Hello(app);
 app.listen(process.env.PORT || 4000);
