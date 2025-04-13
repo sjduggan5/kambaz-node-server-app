@@ -1,11 +1,11 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 const schema = new mongoose.Schema(
   {
     _id: String,
     name: String,
     description: String,
-    course: { type: String, ref: "CourseModel" },
+    course: { type: String, ref: 'CourseModel' },
   },
-  { collection: "modules" }
+  { collection: 'modules' }
 );
 export default schema;

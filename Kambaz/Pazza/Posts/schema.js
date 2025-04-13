@@ -31,6 +31,7 @@ const postSchema = new mongoose.Schema(
       enum: ['QUESTION', 'NOTE'],
       default: 'QUESTION',
     },
+    isPinned: Boolean,
   },
   { collection: 'posts' }
 );
