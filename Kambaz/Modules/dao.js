@@ -1,6 +1,6 @@
 import model from './model.js';
 export function findModulesForCourse(courseId) {
-    return model.find({ course: courseId });
+  return model.find({ course: courseId });
 }
 
 export function createModule(module) {
@@ -9,9 +9,9 @@ export function createModule(module) {
 }
 
 export function deleteModule(moduleId) {
-    return model.deleteOne({ _id: moduleId });
+  return model.deleteOne({ _id: moduleId });
 }
 
 export function updateModule(moduleId, moduleUpdates) {
-    return model.updateOne({ _id: moduleId }, moduleUpdates);
+  return model.updateOne({ _id: moduleId }, moduleUpdates);
 }

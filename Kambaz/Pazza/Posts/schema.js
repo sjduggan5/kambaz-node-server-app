@@ -12,7 +12,7 @@ const postSchema = new mongoose.Schema(
     views: Number,
     createDate: Date,
     course: { type: String, ref: 'CourseModel' },
-    folder: { type: String, ref: 'FolderModel' },
+    folders: [{ type: String, ref: 'FolderModel' }],
     title: String,
     content: String,
     visibility: {
@@ -31,6 +31,7 @@ const postSchema = new mongoose.Schema(
       enum: ['QUESTION', 'NOTE'],
       default: 'QUESTION',
     },
+    isPinned: Boolean,
   },
   { collection: 'posts' }
 );
