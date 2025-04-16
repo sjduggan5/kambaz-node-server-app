@@ -27,6 +27,13 @@ export default function PostRoutes(app) {
     res.send(posts);
   });
 
+  // Get posts for a user in a course
+  app.get('/api/posts/user/:userId/course/:courseId', async (req, res) => {
+    const { userId, courseId } = req.params;
+    const posts = await dao.findPostsForUserAndCourse(userId, courseId);
+    res.send(posts);
+  });
+
   // Get posts for folder
   app.get('/api/posts/folder/:folderId', async (req, res) => {
     const { folderId } = req.params;
