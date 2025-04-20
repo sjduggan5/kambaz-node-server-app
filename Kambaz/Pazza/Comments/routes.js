@@ -43,7 +43,7 @@ export default function CommentRoutes(app) {
   });
 
   // Delete comment
-  app.delete('/api/comment/:commentId', async (req, res) => {
+  app.delete('/api/comments/:commentId', async (req, res) => {
     const { commentId } = req.params;
     const status = await dao.deleteComment(commentId);
     res.send(status);
