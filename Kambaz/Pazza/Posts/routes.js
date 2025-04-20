@@ -57,7 +57,7 @@ export default function PostRoutes(app) {
   });
 
   // Delete post
-  app.delete('/api/post/:postId', async (req, res) => {
+  app.delete('/api/posts/:postId', async (req, res) => {
     const { postId } = req.params;
     const status = await dao.deletePost(postId);
     res.send(status);
