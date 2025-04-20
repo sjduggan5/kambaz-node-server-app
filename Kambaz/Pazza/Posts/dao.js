@@ -20,12 +20,8 @@ export function findPostsForCourse(courseId) {
 export function findPostsForUserAndCourse(userId, courseId) {
   return model.find({
     course: courseId,
-    $or: [
-      { visibility: 'PUBLIC' },
-      { visibleToUserIds: userId }
-    ]
+    $or: [{ visibility: 'PUBLIC' }, { visibleToUserIds: userId }],
   });
-
 }
 
 export function findPostsForFolder(folderId) {
