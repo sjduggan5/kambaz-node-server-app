@@ -19,6 +19,7 @@ const commentSchema = new mongoose.Schema(
     post: { type: String, ref: 'PostModel' },
     parentComment: { type: String, ref: 'CommentModel' },
     isResolved: Boolean,
+    course: String
   },
   { collection: 'comments' }
 );

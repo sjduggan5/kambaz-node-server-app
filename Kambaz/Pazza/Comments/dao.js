@@ -17,6 +17,10 @@ export function findRepliesToComment(commentId) {
   return model.find({ parentComment: commentId });
 }
 
+export function findCommentsForCourse(courseId) {
+  return model.find({ course: courseId})
+}
+
 export function createComment(comment) {
   const newComment = { ...comment, _id: uuidv4() };
   return model.create(newComment);

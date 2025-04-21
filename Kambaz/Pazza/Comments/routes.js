@@ -20,6 +20,13 @@ export default function CommentRoutes(app) {
     res.send(comments);
   });
 
+  // Get comments for course
+  app.get('/api/comments/course/:courseId', async (req, res) => {
+    const { courseId } = req.params;
+    const comments = await dao.findCommentsForCourse(courseId);
+    res.send(comments);
+  });
+
   // Get replies to comment
   app.get('/api/comments/replies/:commentId', async (req, res) => {
     const { commentId } = req.params;
